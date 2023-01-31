@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+const path = require('path')
 const AutoLoad = require('@fastify/autoload')
 const fastifyStatic = require('@fastify/static');
 
@@ -8,7 +9,7 @@ module.exports = async function (fastify, opts) {
   // Place here your custom code!
 
   fastify.register(fastifyStatic, {
-    root: `${process.cwd()}/frontend/build`,
+    root: `${process.cwd()}/my-app/build`,
   });
 
   fastify.setNotFoundHandler((req, res) => {
@@ -32,6 +33,7 @@ module.exports = async function (fastify, opts) {
     options: Object.assign({}, opts)
   });
 }
+
 
 function App() {
   return (
