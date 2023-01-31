@@ -7,7 +7,7 @@ const fastifyStatic = require('@fastify/static');
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
 
-   fastify.register(fastifyStatic, {
+  fastify.register(fastifyStatic, {
     root: `${process.cwd()}/frontend/build`,
   });
 
