@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ValentinaFediakova/frontend-project-12#readme",
   "dependencies": {
+    "@fastify/static": "^6.8.0",
     "@hexlet/chat-server": "^1.1.6"
   }
 }
