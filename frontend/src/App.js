@@ -1,6 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 
+const fastifyStatic = require('@fastify/static');
+fastify.register(fastifyStatic, {
+  root: `${process.cwd()}/my-app/build`,
+});
+
+fastify.setNotFoundHandler((req, res) => {
+  res.sendFile('index.html');
+});
+
 function App() {
   return (
     <div className="App">
