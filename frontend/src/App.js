@@ -1,22 +1,18 @@
-import React , { useState } from 'react';
+import React , { useEffect, useState } from 'react';
 import {
   useLocation,
   useNavigate,
   Route,
   Routes,
-  createBrowserRouter,
   BrowserRouter,
-  RouterProvider,
-  createRoutesFromElements,
   Navigate,
-  useRouteError
 } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AuthContext from './contexts/index.js';
 import useAuth from './hooks/index.js';
-import Main from './routes/main/Main';
+import Chat from './routes/chat/Chat';
 import Login from './routes/login/Login'
 import Signup from './routes/signup/Signup'
 import { ErrorBoundary, ErrorPage } from './errors'
@@ -25,11 +21,9 @@ import './index.css';
 
 const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token'));
-  const navigate = useNavigate();
 
   const logIn = () => {
     setLoggedIn(true);
-    // navigate('/', { replace: false });
   }
 
   const logOut = () => {
@@ -55,14 +49,12 @@ const PrivateRoute = ({ children }) => {
   );
 };
 
-// function ErrorBoundary() {
-//   console.log('!!!!!!!!')
-//   const error = useRouteError();
-//   console.error('error', error);
-//   return <div>{error.message}</div>;
-// }
-
 const App = () => {
+  useEffect(() => {
+    console.log('loaded App')
+  }, []);
+
+  // return <div>sadfasf</div>
   return (
     <ErrorBoundary>
     <BrowserRouter>
@@ -76,7 +68,7 @@ const App = () => {
               path="/" 
               element={
                 <PrivateRoute>
-                  <Main />
+                  <Chat />
                 </PrivateRoute>
               }
             />

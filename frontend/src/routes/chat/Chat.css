@@ -1,0 +1,36 @@
+.Chat-container{
+    flex-direction: row;
+    display: flex;
+    height: 60vh;
+}
+
+.Chat-container_btn-container{
+    margin-bottom: 20px;
+}
+
+.Chat-col{
+    padding: 0;
+}
+
+.card{
+    border-radius: 0;
+}
+
+.Chat-button-group{
+    width: 100%;
+    margin-top: 25px;
+}
+
+.Chat__button_withoutRadius{
+    border-radius: 0;
+    text-align: left;
+}
+
+.Chat__button_withoutRadius .btn{
+    border-radius: 0;
+    text-align: left;
+}
+
+.Chat__button_marginTop{
+    margin-top: -10px;
+}
