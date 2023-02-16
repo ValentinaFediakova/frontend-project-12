@@ -12,9 +12,10 @@ const initialState = {
   channels: {
     items: [],
   },
-  // messages: {
-  //   items: [],
-  // },
+  messages: {
+    items: [],
+  },
+  currentChannelId: 1,
   errors: '',
   loading: null,
 }

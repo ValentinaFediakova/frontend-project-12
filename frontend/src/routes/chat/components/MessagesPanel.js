@@ -1,3 +1,6 @@
+
+import { useStore, useDispatch, useSelector } from 'react-redux' 
+
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -8,11 +11,19 @@ const svgSendMessage = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 1
 
 
 const MessagesPanel = () => {
+  const messages = useSelector(state => state.messages.items)
+  const currentChannelId = useSelector(state => state.currentChannelId)
+  const channels = useSelector(state => state.channels.items)
+
+  const currentChannelInfo = channels.find(({id}) => id === currentChannelId)
+  // console.log('currentChannelInfo', currentChannelInfo)
+  // console.log('currentChannelId', currentChannelId)
+
   return(
     <Card
-    style={{ width: '80%' }}
+      style={{ width: '80%' }}
     >
-      <Card.Header><strong># family</strong> <br></br>6 сообщений</Card.Header>
+      <Card.Header><strong># {currentChannelInfo.name}</strong> <br></br>{messages.length} сообщений</Card.Header>
         <Card.Body>
           <Card.Title>Card title</Card.Title>
           <Card.Text>

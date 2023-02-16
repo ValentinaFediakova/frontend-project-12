@@ -22,6 +22,6 @@ export const getData = async () => {
   const urlGet = getUrl('/api/v1/data');
   const token = localStorage.getItem('token');
   const response = await axios.get(urlGet, { headers: { Authorization: `Bearer ${token}` } });
-  // console.log('response.data', response.data)
+  console.log('response.data', response.data)
   return response.data
 }
