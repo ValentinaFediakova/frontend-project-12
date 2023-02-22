@@ -2,12 +2,14 @@ import axios from 'axios';
 import { async } from 'regenerator-runtime';
 
 export const href = process.env.NODE_ENV === 'development' ? 'http://localhost:5001' : 'http://localhost:5001'
+export const SOKET_URI = 'ws://localhost:5001'
 
 const getUrl = (url) => {
   return `${href}${url}`
 }
 
 export const postRequest = async (data) => {
+  console.log('POST data', data)
   try {
     const urlPost = getUrl('/api/v1/login');
     const response = await axios.post(urlPost, data);

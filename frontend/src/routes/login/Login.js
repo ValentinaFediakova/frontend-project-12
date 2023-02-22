@@ -2,15 +2,9 @@ import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
+  BrowserRouter,
   Link,
-  Navigate,
-  useLocation,
-  createBrowserRouter,
   useNavigate,
-  RouterProvider
 } from 'react-router-dom';
 
 import ButtonBootstrap from 'react-bootstrap/Button';
@@ -45,6 +39,7 @@ function Login() {
     if (response.token){
       auth.logIn()
       localStorage.setItem('token', response.token)
+      localStorage.setItem('username', values.username)
       navigate('/', { replace: false });
     }
 

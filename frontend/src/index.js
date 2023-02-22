@@ -4,9 +4,12 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import socketMiddleware from './asyncActions/websockets'
 
 import { rootReducer } from './reducers/index'
 import App from './App'
+
+const middlewares = [thunk, socketMiddleware()]
 
 const initialState = {
   channels: {
@@ -17,11 +20,14 @@ const initialState = {
   },
   currentChannelId: 1,
   errors: '',
-  loading: null,
+  loading: {},
+  user: {
+    username: null,
+  }
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(...middlewares)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

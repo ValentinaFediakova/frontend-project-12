@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useStore, useDispatch, useSelector } from 'react-redux' 
 
+import { addUser } from '../../actions/user'
+
 import { getDataForChannels } from '../../asyncActions/getChannels'
+import { wsConnect } from '../../actions/websocket'
 import ChannelPanel from './components/ChannelPanel'
 import MessagesPanel from './components/MessagesPanel'
 
@@ -14,12 +17,12 @@ import './Chat.css';
 
 function Chat(){
   const dispatch = useDispatch()
-  
-  const state = useSelector(state => state)
-  console.log('state', state)
+  const username = localStorage.getItem('username');
 
   useEffect(() => {
     dispatch(getDataForChannels())
+    dispatch(wsConnect())
+    dispatch(addUser(username))
   }, []);
  
   return (

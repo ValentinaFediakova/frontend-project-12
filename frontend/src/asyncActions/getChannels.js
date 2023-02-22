@@ -16,6 +16,7 @@ export const getDataForChannels = () => {
     try{
       dispatch(loadingStarted())
       const data = await getData()
+      console.log('data', data)
       dispatch(channelsAddToState(data.channels))
       dispatch(messagesAddToState(data.messages))
       dispatch(loadingsSuccess())
