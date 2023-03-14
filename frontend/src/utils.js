@@ -3,6 +3,7 @@ import { async } from 'regenerator-runtime';
 
 export const href = process.env.NODE_ENV === 'development' ? 'http://localhost:5001' : 'http://localhost:5001'
 export const SOKET_URI = 'ws://localhost:5001'
+export const DEFAULT_CHANNEL = 1
 
 const getUrl = (url) => {
   return `${href}${url}`
@@ -27,3 +28,4 @@ export const getData = async () => {
   console.log('response.data', response.data)
   return response.data
 }
+

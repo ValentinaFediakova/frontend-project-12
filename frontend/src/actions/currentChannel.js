@@ -1,1 +1,0 @@
-export const changeChannel = (payload) => ({type: 'CHANNELS_CHANGE', payload})

@@ -16,14 +16,10 @@
     border-radius: 0;
 }
 
-.Chat-button-group{
-    width: 100%;
-    margin-top: 25px;
-}
-
 .Chat__button_withoutRadius{
     border-radius: 0;
     text-align: left;
+    flex: none !important;
 }
 
 .Chat__button_withoutRadius .btn{

@@ -43,8 +43,6 @@ function Login() {
       navigate('/', { replace: false });
     }
 
-
-
     if (response.statusCode === 401) {
       const error = {
         username: 'неверный логин или пароль',

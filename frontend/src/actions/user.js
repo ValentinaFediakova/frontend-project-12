@@ -1,1 +1,0 @@
-export const addUser = (payload) => ({type: 'USER_ADD', payload})

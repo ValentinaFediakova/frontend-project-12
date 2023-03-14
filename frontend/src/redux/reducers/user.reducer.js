@@ -1,4 +1,4 @@
-const USER_ADD = 'USER_ADD'
+import { USER_ADD } from '../actionTypes/user.actionType'
 
 const user = (state = {}, action) => {
   switch(action.type){

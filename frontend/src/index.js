@@ -2,39 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import socketMiddleware from './asyncActions/websockets'
 
-import { rootReducer } from './reducers/index'
+import { store } from './redux/store'
 import App from './App'
 
-const middlewares = [thunk, socketMiddleware()]
-
-const initialState = {
-  channels: {
-    items: [],
-  },
-  messages: {
-    items: [],
-  },
-  currentChannelId: 1,
-  errors: '',
-  loading: {},
-  user: {
-    username: null,
-  }
-}
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(...middlewares)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-  {/* <React.StrictMode> */}
-      <App />
-  {/* </React.StrictMode> */}
+    <App />
   </Provider>
 );
 

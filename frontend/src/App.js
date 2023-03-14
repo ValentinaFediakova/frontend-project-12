@@ -30,8 +30,8 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     setLoggedIn(false);
   };
-
   return (
+
     <AuthContext.Provider value={{ loggedIn, logIn, logOut }}>
       {children}
     </AuthContext.Provider>
@@ -41,8 +41,6 @@ const AuthProvider = ({ children }) => {
 const PrivateRoute = ({ children }) => {
   const auth = useAuth();
   const location = useLocation();
-
-  console.log('auth.loggedIn', auth.loggedIn)
 
   return (
     auth.loggedIn ? children : <Navigate to="/login" state={{ from: location }} />
@@ -54,7 +52,6 @@ const App = () => {
     console.log('loaded App')
   }, []);
 
-  // return <div>sadfasf</div>
   return (
     <ErrorBoundary>
     <BrowserRouter>
@@ -64,7 +61,6 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route 
-              // errorElement={<ErrorBoundary />}
               path="/" 
               element={
                 <PrivateRoute>
